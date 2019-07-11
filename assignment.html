@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript">
+		var input = prompt("Enter your word");
+		document.write("input is "+input+"<br/>");
+		if(input.length === 0){
+			document.write("Error");
+		}else{
+			if(input.length >= 3){
+				var ade =[];
+				var firstNumber = input[0];
+				var counter1=0; 
+				var counter2=0;
+				var counter3=0;
+
+				var secondNumber="";
+				 var thirdNumber="";
+				for (var i = 0; i < input.length; i++) {
+					ade[i] = input[i];
+				}
+					/*
+					document.write(input[i]+"<br/>");
+					
+					if ( (input[i] !== firstNumber) && (input[i] !== secondNumber) ) {
+						thirdNumber= input[i];
+					}
+					*/
+				
+				for (var i = 0; i < input.length; i++) {
+					if (input[i] !== firstNumber) {
+						secondNumber = input[i];
+						break;
+					}
+				}
+				for (var i = 0; i < input.length; i++) {
+					if ( (input[i] !== firstNumber )&& (input[i] !== secondNumber ) ) {
+						thirdNumber = input[i];
+						break;
+					}
+				}
+				document.write("first number is "+firstNumber);
+				document.write("Second letter is "+ secondNumber);
+				document.write("Third letter is "+ thirdNumber);
+			//	alert(firstNumber);
+				for (var i = 0; i < input.length; i++ ) {
+					if(input[i] == firstNumber){
+						counter1++;
+					}else if(input[i] == secondNumber){
+						counter2++;
+					}else if(input[i] == thirdNumber){
+						counter3++;
+					}else{
+						continue;
+					}
+					
+				}
+				//alert("Counter1 is "+counter1+"counter2 is "+counter2+"counter3 is"+counter3);
+				if((counter1 === counter2) && (counter2 === counter3)){
+
+					if ( ((counter1 * 3) % 2) === 1) {//if the number word is odd
+
+						/*
+						for (var i = 0; i < input.length; i++) {
+							if ( (input[i] === firstNumber) &&  (i ) ) {}
+							input[i]
+						}
+						*/
+					}else{
+						//if the total word number is even
+						//for (var i = 0; i < input.length; i++) {
+
+							var i;
+							if ( input[i] == firstNumber && ( (i == 0) || (i < counter1) ) ) {
+								alert("First Number Verified");
+
+							}if( input[i] == secondNumber && ( (i == counter1) || (i < ( (counter1*2)-1) ) ) ){
+								alert("Second Alphabet Verified");
+
+							}
+							if( input[i] == thirdNumber && ( (i == (counter1*2) ) || (i < (input.length ) ) ) ){
+								alert("Third Alphabet Verified");
+							}
+
+						//}
+					}
+					// wrong alert("Counter 1 is "+counter1);
+					// for (var i = 0; i < input.length; i++) {
+					// 	if (input[i] <= counter1) {
+					// 		input[i] = "firstNumber";
+					// 	}else if ( (input[i] <= counter1) && (input[i] ) ) {}
+					// }
+				}
+				else{
+					alert("This language does not belong");
+				}
+			}else{
+				document.write("Less than three length string can not work");
+			}
+			
+		}
+	</script>
+</head>
+<body>
+
+</body>
+
+</html>
