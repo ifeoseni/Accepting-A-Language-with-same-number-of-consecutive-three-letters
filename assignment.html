@@ -6,6 +6,7 @@
 	<script type="text/javascript">
 		var input = prompt("Enter your word");
 		document.write("input is "+input+"<br/>");
+
 		if(input.length === 0){
 			document.write("Error");
 		}else{
@@ -15,6 +16,9 @@
 				var counter1=0; 
 				var counter2=0;
 				var counter3=0;
+				var firstVerified=0;
+				var secondVerified=0;
+				var thirdVerified=0;
 
 				var secondNumber="";
 				 var thirdNumber="";
@@ -57,10 +61,12 @@
 					}
 					
 				}
+				//	document.write("Check me out and delete me");
 				//alert("Counter1 is "+counter1+"counter2 is "+counter2+"counter3 is"+counter3);
 				if((counter1 === counter2) && (counter2 === counter3)){
 
-					if ( ((counter1 * 3) % 2) === 1) {//if the number word is odd
+					if ( ((counter1 * 3) % 2) === 1) {
+					//if the number word is odd
 
 						/*
 						for (var i = 0; i < input.length; i++) {
@@ -68,23 +74,84 @@
 							input[i]
 						}
 						*/
+
+						for (var i = 0; i < input.length; i++) {
+							if ((input[i] == firstNumber) && ( (i >= 0) && (i < counter1) ) ) {
+								firstVerified  += 1;
+							}else{
+								firstVerified +=0;
+							}
+							if( (input[i] == secondNumber) && ( (i >= counter1) && (i < (counter1*2) ) ) ){
+								secondVerified += 1;
+								//document.write("Second Alphabet Verified <br/>");
+
+							}else{
+								secondVerified+= 0;
+								//document.write("Second alphabet not verified <br/> ");
+							}
+							if( (input[i] == thirdNumber) && ( (i >= (counter1*2) ) && (i < (input.length ) ) ) ){
+								thirdVerified += 1;
+								//document.write("Third Alphabet Verified <br/>");
+							}else{
+								thirdVerified += 0;
+								//document.write("Third Alphabet not Verified <br/>");
+								
+							}
+
+						}
+						document.write("<br/>Odd <br/> First is "+firstVerified+" second is "+secondVerified+" third is " +thirdVerified);
+						if( (firstVerified == secondVerified) && (thirdVerified == secondVerified) ){
+								alert(input+" is part of the language. It is correct.");
+						}else{
+							document.write("Not part of the language");
+						}
+
 					}else{
 						//if the total word number is even
-						//for (var i = 0; i < input.length; i++) {
+				
+						document.write("<br/>");
+						for (var i = 0; i < input.length; i++) {
 
-							var i;
-							if ( input[i] == firstNumber && ( (i == 0) || (i < counter1) ) ) {
-								alert("First Number Verified");
+							//var i;
+							if ( (input[i] == firstNumber) && ( (i >= 0) && (i < counter1) ) ) {
+								firstVerified  += 1;
+								//document.write("First Number Verified <br/>");
 
-							}if( input[i] == secondNumber && ( (i == counter1) || (i < ( (counter1*2)-1) ) ) ){
-								alert("Second Alphabet Verified");
+							}else{
+								firstVerified+= 0;
 
 							}
-							if( input[i] == thirdNumber && ( (i == (counter1*2) ) || (i < (input.length ) ) ) ){
-								alert("Third Alphabet Verified");
+							if( (input[i] == secondNumber) && ( (i >= counter1) && (i < (counter1*2) ) ) ){
+								secondVerified += 1;
+								//document.write("Second Alphabet Verified <br/>");
+
+							}else{
+								secondVerified+= 0;
+								//document.write("Second alphabet not verified <br/> ");
+							}
+							if( (input[i] == thirdNumber) && ( (i >= (counter1*2) ) && (i < (input.length ) ) ) ){
+								thirdVerified += 1;
+								//document.write("Third Alphabet Verified <br/>");
+							}else{
+								thirdVerified += 0;
+								//document.write("Third Alphabet not Verified <br/>");
+								
 							}
 
-						//}
+							
+
+						}
+						document.write("<br/> Even <br/> First is "+firstVerified+" second is "+secondVerified+" third is " +thirdVerified);
+
+						if( (firstVerified == secondVerified) && (thirdVerified == secondVerified) ){
+								alert(input+" is part of the language. It is correct.");
+						}else{
+							document.write("Not part of the language");
+						}
+
+
+
+
 					}
 					// wrong alert("Counter 1 is "+counter1);
 					// for (var i = 0; i < input.length; i++) {
